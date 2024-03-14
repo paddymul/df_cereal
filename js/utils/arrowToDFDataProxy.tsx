@@ -34,7 +34,7 @@ export const arrowToDFDataProxy = (table: Table): DFData => {
 
     const dfDataHandler = {
         get(target:any, prop:string, receiver:any) {
-            console.log("target", target, "prop", prop, "receiver", receiver);
+            //console.log("target", target, "prop", prop, "receiver", receiver);
 
             if (prop === 'length') {
                 return table.batches[0].data.length}
@@ -69,6 +69,7 @@ export function bytesToBase64(bytes: Uint8Array) {
 }
 
 export const arrowFromBase64 = (b64:string)  => {
+    console.log("b64", b64)
     const b64bytes = base64ToBytes(b64);
     const t2 = tableFromIPC(b64bytes);
     return t2;
