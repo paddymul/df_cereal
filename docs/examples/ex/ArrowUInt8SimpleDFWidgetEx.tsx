@@ -3,8 +3,8 @@ import _ from 'lodash';
 
 import { tableFromIPC } from 'apache-arrow';
 
-import { SimpleDFWidget} from '../../js/SimpleDFWidget'
-import { arrowToDFDataProxy, base64ToBytes } from '../../js/arrowUtils';
+import { SimpleDFWidget} from '../../../js/SimpleDFWidget'
+import { arrowToDFDataProxy, base64ToBytes } from '../../../js/arrowUtils';
 
 
 const raw_ints = [

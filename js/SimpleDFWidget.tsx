@@ -58,10 +58,12 @@ export function BytesSimpleDFWidgetOrig({ df_arrow_bytes}: {df_arrow_bytes:any})
 }
 
 export function BytesSimpleDFWidget({ df_arrow_bytes}: {df_arrow_bytes:DataView}) {
-  console.log("df_arrow_bytes", df_arrow_bytes)
-  const uintBytes = new Uint8Array(df_arrow_bytes.buffer);
 
-  const table = tableFromIPC(uintBytes);
+
+  console.log("df_arrow_bytes", df_arrow_bytes)
+  //const uintBytes = new Uint8Array(df_arrow_bytes.buffer);
+
+  const table = tableFromIPC(df_arrow_bytes.buffer) //uintBytes);
   console.log("table", table)
   const dfd:DFData = arrowToDFDataProxy(table)
   return SimpleDFWidget({df_data:dfd}) 

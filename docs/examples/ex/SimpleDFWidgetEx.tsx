@@ -1,5 +1,5 @@
 import React from 'react';
-import { DFData, SimpleDFWidget} from '../../js/SimpleDFWidget'
+import { DFData, SimpleDFWidget} from '../../../js/SimpleDFWidget'
 
 
 const sampleData:DFData =   [

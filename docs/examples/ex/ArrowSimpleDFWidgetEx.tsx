@@ -2,8 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 
 import { tableToIPC, tableFromJSON } from 'apache-arrow';
-import { SimpleDFWidget} from '../../js/SimpleDFWidget'
-import { arrowToDFDataProxy, base64ToBytes } from '../../js/arrowUtils';
+import { SimpleDFWidget} from '../../../js/SimpleDFWidget'
+import { arrowToDFDataProxy, base64ToBytes } from '../../../js/arrowUtils';
 
 
 export default function() {
