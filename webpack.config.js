@@ -121,7 +121,7 @@ module.exports = [
   },
 
   /**
-   * Embeddable buckaroo bundle
+   * Embeddable df_cereal bundle
    *
    * This bundle is almost identical to the notebook extension bundle. The only
    * difference is in the configuration of the webpack public path for the

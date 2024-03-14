@@ -71,7 +71,6 @@ def enable(sampled=True,
 
     def _display_polars_as_buckaroo(polars_df):
         from IPython.display import display
-        from buckaroo.polars_buckaroo import PolarsBuckarooWidget
 
         try:
             return display(PolarsDFWidget(polars_df))

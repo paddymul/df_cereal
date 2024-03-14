@@ -159,7 +159,7 @@ module.exports = [
       filename: 'index.js',
       path: path.resolve(__dirname, 'dist'),
       libraryTarget: 'amd',
-      library: 'buckaroo',
+      library: 'df_cereal',
       publicPath: 'https://unpkg.com/df_cereal@' + version + '/dist/',
     },
     devtool: 'source-map',

@@ -12,7 +12,7 @@ import pandas as pd
 import json
 
 from ipywidgets import DOMWidget
-from traitlets import Unicode, List, Dict, observe, Any
+from traitlets import Unicode, Any
 from ._frontend import module_name, module_version
 
 def pd_to_obj(df:pd.DataFrame):
