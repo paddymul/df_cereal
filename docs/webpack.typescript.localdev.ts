@@ -7,16 +7,11 @@ import {TsconfigPathsPlugin} from 'tsconfig-paths-webpack-plugin';
 import * as React from 'react';
 
 const webpackConfig = (env): Configuration => {
-    let reactMajorVersion = +React.version.split('.')[0];
-    if (reactMajorVersion >= 18) {
-        console.log('React 18 detected');
-    } else {
-        console.log('React 16/17 detected');
-    }
 
     const conf: Configuration = {
-        entry: reactMajorVersion >= 18 ? './examples/index-react18.tsx' : './examples/index.tsx',
-        ...(env.production || !env.development ? {} : {devtool: 'eval-source-map'}),
+      entry: './docs/examples/index-react18.tsx',
+      //...(env.production || !env.development ? {} : {devtool: 'eval-source-map'}),
+      devtool: 'eval-source-map',
         resolve: {
             alias: {
                 'react-edit-list': path.resolve(__dirname, 'src')
@@ -39,7 +34,7 @@ const webpackConfig = (env): Configuration => {
                     loader: 'ts-loader',
                     options: {
                         transpileOnly: true,
-                        configFile: 'examples/tsconfig.json'
+                        configFile: 'docs/examples_tsconfig.json'
                     }
                 },
 		{
@@ -90,7 +85,7 @@ const webpackConfig = (env): Configuration => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: './examples/index.html'
+                template: './docs/examples/index.html'
             }),
             new webpack.DefinePlugin({
                 process: {
@@ -107,14 +102,6 @@ const webpackConfig = (env): Configuration => {
         }
     };
 
-    if (reactMajorVersion < 18) {
-        // This is needed for React 16/17 as otherwise ts-loader
-        // will pick `index-react18.tsx` and will fail transpiling it
-        conf.module.rules.unshift({
-            test: /index-react18\.tsx?$/,
-            loader: 'null-loader'
-        });
-    }
 
     if (!env.development) {
         conf.plugins.push(

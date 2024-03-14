@@ -4,10 +4,10 @@
 
 
 import React from 'react';
-import {DFData, SimpleDFWidget} from '../../js/SimpleDFWidget'
+import {DFData, SimpleDFWidget} from '../../../js/SimpleDFWidget'
 import _ from 'lodash';
 import { tableFromIPC } from 'apache-arrow';
-import { arrowToDFDataProxy, base64ToBytes } from '../../js/arrowUtils';
+import { arrowToDFDataProxy, base64ToBytes } from '../../../js/arrowUtils';
 
 
 const base64table = [
