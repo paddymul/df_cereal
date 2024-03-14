@@ -1,10 +1,26 @@
+// This webpack builds the examples, the library dist files are built with tsc
+//import path from 'path';
 const path = require('path');
-const version = require('./package.json').version;
+
+//import webpack, {Configuration} from 'webpack'; Configuration unused
+//import webpack from 'webpack';
+const webpack = require('webpack');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+//import HtmlWebpackPlugin from 'html-webpack-plugin';
+//import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+
 //import {TsconfigPathsPlugin} from 'tsconfig-paths-webpack-plugin';
 const  TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+
+const version = require('./package.json').version;
+//import {TsconfigPathsPlugin} from 'tsconfig-paths-webpack-plugin';
+
+
 //import HtmlWebpackPlugin from 'html-webpack-plugin';
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const luminoThemeImages = /^.*@lumino\/default-theme.*.png$/;
 
 const crypto = require('crypto');
@@ -67,6 +83,11 @@ const baseRules = [
       options: { encoding: 'none', limit: 10000 },
     },
   },
+    {
+        test: /\.md$/,
+        use: ['html-loader', 'markdown-loader']
+    }
+
 ];
 
 
@@ -111,7 +132,19 @@ module.exports = [
       plugins: [new HtmlWebpackPlugin({
                 //template: './examples/index.html'
                 template: './examples/index.html'
-      })],
+      }),
+            new webpack.DefinePlugin({
+                process: {
+                    env: {
+                        //DEBUG: !env.production || env.development
+                        DEBUG: true
+                    }
+                },
+                VERSION: JSON.stringify(require('./package.json').version),
+                //MAPBOX_TOKEN: JSON.stringify(process.env.MAPBOX_TOKEN)
+            })
+
+	       ],
       performance
   },
 
