@@ -1,9 +1,10 @@
 import React from 'react';
-import {DFData, SimpleDFWidget} from '../../js/components/SimpleDFWidget'
 import _ from 'lodash';
 
-import { tableToIPC, tableFromIPC, Bool, Dictionary, Float32, Float64, Int32, Int8, makeTable, tableFromArrays, tableFromJSON } from 'apache-arrow';
-import { arrowToDFDataProxy } from '../../js/utils/arrowToDFDataProxy';
+import { tableFromIPC } from 'apache-arrow';
+
+import { SimpleDFWidget} from '../../js/SimpleDFWidget'
+import { arrowToDFDataProxy, base64ToBytes } from '../../js/arrowUtils';
 
 
 const raw_ints = [

@@ -1,4 +1,4 @@
-import { DFData } from '../components/SimpleDFWidget';
+import { DFData } from './SimpleDFWidget';
 import { Table, tableFromIPC } from 'apache-arrow';
 
 export const arrowToDFData = (table: Table): DFData => {

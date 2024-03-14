@@ -7,18 +7,14 @@ import {
   ISerializers,
 } from '@jupyter-widgets/base';
 
-//import { WidgetDCFCell } from './components/DCFCell';
-import { Base64SimpleDFWidget, BytesSimpleDFWidget, SimpleDFWidget } from './components/SimpleDFWidget';
+import { Base64SimpleDFWidget, BytesSimpleDFWidget, SimpleDFWidget } from './SimpleDFWidget';
 
 import * as Backbone from 'backbone';
 
 import React, { useEffect, useState } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 import { MODULE_NAME, MODULE_VERSION } from './version';
-
 // Import the CSS
-
-import '../js/style/dcf-npm.css';
 
 
 

@@ -6,7 +6,7 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom';
 
 import './app.css';
 
-import '../js/style/dcf-npm.css';
+//import '../js/style/dcf-npm.css';
 
 
 const examples = {
@@ -45,7 +45,7 @@ const App = (): JSX.Element => {
         <Router>
 	<div className="dev-examples">
             <h1 className='m-2'>
-                <strong>buckaroo stuff examples </strong>
+                <strong>df_cereal examples </strong>
             </h1>
             <div className='d-flex flex-row p-3'>
                 <div className='d-flex flex-column left-menu me-2'>

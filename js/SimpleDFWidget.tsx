@@ -3,7 +3,7 @@ import React from 'react';
 //import _ from 'lodash';
 
 import { tableFromIPC } from 'apache-arrow';
-import { arrowFromBase64, arrowToDFDataProxy } from '../utils/arrowToDFDataProxy';
+import { arrowFromBase64, arrowToDFDataProxy } from './arrowUtils';
 
 
 export type DFDataRow = Record<

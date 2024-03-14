@@ -1,5 +1,5 @@
 import React from 'react';
-import {DFData, SimpleDFWidget} from '../../js/components/SimpleDFWidget'
+import { DFData, SimpleDFWidget} from '../../js/SimpleDFWidget'
 
 
 const sampleData:DFData =   [
@@ -7,8 +7,5 @@ const sampleData:DFData =   [
     {'a': 58.2, 'b': 9, 'c': 'Margaret'}];
 export default function() {
     console.log("statusbar default");
-
-
     return <div><SimpleDFWidget df_data={sampleData}/></div>
-
 }
