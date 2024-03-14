@@ -1,0 +1,7 @@
+node_modules
+dist
+coverage
+**/*.d.ts
+tests
+js/vendor/RechartTooltip.tsx
+js/baked_data/colorMap.ts
