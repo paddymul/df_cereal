@@ -55,7 +55,7 @@
     "watch:lib": "tsc -w",
     "watch:nbextension": "webpack --watch",
     "watch:labextension": "jupyter labextension watch .",
-    "dev": "webpack-cli serve --config webpack.typescript.localdev.ts  --mode=development --env development --open"
+    "dev": "webpack-cli serve --config docs/webpack.typescript.localdev.ts  --mode=development --env development --open"
 
   },
   "dependencies": {
