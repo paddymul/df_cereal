@@ -1,11 +1,9 @@
 import React from 'react';
-import { DFData, SimpleDFWidget} from '../../../js/SimpleDFWidget'
+import { Components } from 'df_cereal';
 
-
-const sampleData:DFData =   [
+const sampleData:Components.DFData =   [
     {'a':  5  , 'b':20, 'c': 'Paddy'},
     {'a': 58.2, 'b': 9, 'c': 'Margaret'}];
 export default function() {
-    console.log("statusbar default");
-    return <div><SimpleDFWidget df_data={sampleData}/></div>
+    return <div><Components.SimpleDFWidget df_data={sampleData}/></div>
 }

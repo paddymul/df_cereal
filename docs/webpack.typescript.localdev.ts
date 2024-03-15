@@ -12,19 +12,19 @@ const webpackConfig = (env): Configuration => {
       entry: './docs/examples/index-react18.tsx',
       //...(env.production || !env.development ? {} : {devtool: 'eval-source-map'}),
       devtool: 'eval-source-map',
-        resolve: {
-            alias: {
-                'react-edit-list': path.resolve(__dirname, 'src')
-            },
-            extensions: ['.ts', '.tsx', '.js'],
-            //TODO waiting on https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/61
-            //@ts-ignore
-            plugins: [new TsconfigPathsPlugin()]
+      resolve: {
+        alias: {
+          'df_cereal': path.resolve(__dirname, '../js')
         },
-        output: {
-            path: path.join(__dirname, '/build/html/examples'),
-            filename: 'bundle.js'
-        },
+        extensions: ['.ts', '.tsx', '.js'],
+        //TODO waiting on https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/61
+        //@ts-ignore
+        plugins: [new TsconfigPathsPlugin()]
+      },
+      output: {
+        path: path.join(__dirname, '/build/html/examples'),
+        filename: 'bundle.js'
+      },
         // https://github.com/TypeStrong/ts-loader/issues/751
         ignoreWarnings: [{message: /export .* was not found in/}],
         module: {

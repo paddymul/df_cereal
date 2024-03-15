@@ -1,7 +1,6 @@
 import React from 'react';
-import {DFData, SimpleDFWidget} from '../../../js/SimpleDFWidget'
 import { tableFromIPC } from 'apache-arrow';
-import { arrowToDFDataProxy, base64ToBytes } from '../../../js/arrowUtils';
+import { arrowUtils, Components } from 'df_cereal';
 
 const base64table = [
   "/////zgBAAAQAAAAAAAKABAADgAHAAgACgAAAAAAAAEIAAAAAAAEAHz///8EAAAABAAAANgAAACYAAAARAAAAAQ",
@@ -22,8 +21,8 @@ const base64table = [
 export default function() {
     // this test verifies that we can load  base64 into an array data and display the same table
 
-    const b64bytes = base64ToBytes(base64table)
+    const b64bytes = arrowUtils.base64ToBytes(base64table)
     const t2 = tableFromIPC(b64bytes);
-    const dfd2 = arrowToDFDataProxy(t2);    
-    return <div><SimpleDFWidget df_data={dfd2}/></div>
+    const dfd2 = arrowUtils.arrowToDFDataProxy(t2);    
+    return <div><Components.SimpleDFWidget df_data={dfd2}/></div>
 }
