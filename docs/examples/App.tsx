@@ -13,6 +13,7 @@ const examples = {
     ArrowUint8SimpleDFWidgetEx: {title: 'Arrow UInt8 SimpleDFWidget', file: 'ArrowUInt8SimpleDFWidgetEx'},
     ArrowBase64SimpleDFWidgetEx: {title: 'Arrow Base64 SimpleDFWidget', file: 'ArrowBase64SimpleDFWidgetEx'},
     BigIntWidgetEx: {title: 'BigInt Widget', file: 'BigIntWidgetEx'},
+    StringColEx: {title: 'StringCol Widget', file: 'StringColEx'},
 
 
 };
