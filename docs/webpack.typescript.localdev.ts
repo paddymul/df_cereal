@@ -22,7 +22,7 @@ const webpackConfig = (env): Configuration => {
             plugins: [new TsconfigPathsPlugin()]
         },
         output: {
-            path: path.join(__dirname, '/docs'),
+            path: path.join(__dirname, '/build/html/examples'),
             filename: 'bundle.js'
         },
         // https://github.com/TypeStrong/ts-loader/issues/751
@@ -103,15 +103,16 @@ const webpackConfig = (env): Configuration => {
     };
 
 
-    if (!env.development) {
-        conf.plugins.push(
-            new ForkTsCheckerWebpackPlugin({
-                eslint: {
-                    files: './{src,examples}/**/*.{ts,tsx,js}'
-                }
-            })
-        );
-    }
+    // if (!env.development) {
+    //     conf.plugins.push(
+    //         new ForkTsCheckerWebpackPlugin({
+    //             eslint: {
+    //                 files: './{js,docs/examples}/**/*.{ts,tsx,js}'
+    //             }
+    //         })
+    //     );
+    // }
+
 
     return conf;
 };
