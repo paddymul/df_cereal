@@ -5,7 +5,6 @@ import React from 'react';
 import { tableFromIPC } from 'apache-arrow';
 import { arrowFromBase64, arrowToDFDataProxy } from './arrowUtils';
 
-
 export type DFDataRow = Record<
   string,
   string | number | boolean | any | null
@@ -49,29 +48,35 @@ export function SimpleDFWidget({ df_data }: { df_data: DFData }) {
   );
 }
 
-export function BytesSimpleDFWidgetOrig({ df_arrow_bytes}: {df_arrow_bytes:any}) {
-  console.log("df_arrow_bytes", df_arrow_bytes)
+export function BytesSimpleDFWidgetOrig({
+  df_arrow_bytes,
+}: {
+  df_arrow_bytes: any;
+}) {
+  console.log('df_arrow_bytes', df_arrow_bytes);
   const table = tableFromIPC(df_arrow_bytes);
-  console.log("table", table)
-  const dfd:DFData = arrowToDFDataProxy(table)
-  return SimpleDFWidget({df_data:dfd}) 
+  console.log('table', table);
+  const dfd: DFData = arrowToDFDataProxy(table);
+  return SimpleDFWidget({ df_data: dfd });
 }
 
-export function BytesSimpleDFWidget({ df_arrow_bytes}: {df_arrow_bytes:DataView}) {
-
-
-  console.log("df_arrow_bytes", df_arrow_bytes)
+export function BytesSimpleDFWidget({
+  df_arrow_bytes,
+}: {
+  df_arrow_bytes: DataView;
+}) {
+  console.log('df_arrow_bytes', df_arrow_bytes);
   //const uintBytes = new Uint8Array(df_arrow_bytes.buffer);
 
-  const table = tableFromIPC(df_arrow_bytes.buffer) //uintBytes);
-  console.log("table", table)
-  const dfd:DFData = arrowToDFDataProxy(table)
-  return SimpleDFWidget({df_data:dfd}) 
+  const table = tableFromIPC(df_arrow_bytes.buffer); //uintBytes);
+  console.log('table', table);
+  const dfd: DFData = arrowToDFDataProxy(table);
+  return SimpleDFWidget({ df_data: dfd });
 }
 
-export function Base64SimpleDFWidget({ df_base64}: {df_base64:string}) {
+export function Base64SimpleDFWidget({ df_base64 }: { df_base64: string }) {
   const table = arrowFromBase64(df_base64);
   //  const table = tableFromIPC(df_arrow_bytes);
-  const dfd:DFData = arrowToDFDataProxy(table)
-  return SimpleDFWidget({df_data:dfd}) 
+  const dfd: DFData = arrowToDFDataProxy(table);
+  return SimpleDFWidget({ df_data: dfd });
 }

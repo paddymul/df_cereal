@@ -7,7 +7,11 @@ import {
   ISerializers,
 } from '@jupyter-widgets/base';
 
-import { Base64SimpleDFWidget, BytesSimpleDFWidget, SimpleDFWidget } from './SimpleDFWidget';
+import {
+  Base64SimpleDFWidget,
+  BytesSimpleDFWidget,
+  SimpleDFWidget,
+} from './SimpleDFWidget';
 
 import * as Backbone from 'backbone';
 
@@ -15,8 +19,6 @@ import React, { useEffect, useState } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 import { MODULE_NAME, MODULE_VERSION } from './version';
 // Import the CSS
-
-
 
 export class ReactWidgetModel extends DOMWidgetModel {
   defaults(): Backbone.ObjectHash {
@@ -45,7 +47,7 @@ export class ReactWidgetModel extends DOMWidgetModel {
 }
 
 export class ReactWidgetView extends DOMWidgetView {
-  rComponent:any = null
+  rComponent: any = null;
   render(): void {
     this.el.classList.add('custom-widget');
 
@@ -76,14 +78,13 @@ export class ReactWidgetView extends DOMWidgetView {
 }
 
 export class SimpleDFWidgetView extends ReactWidgetView {
-  rComponent:any = SimpleDFWidget
+  rComponent: any = SimpleDFWidget;
 }
 
 export class BytesWidgetView extends ReactWidgetView {
-  rComponent = BytesSimpleDFWidget
+  rComponent = BytesSimpleDFWidget;
 }
 
 export class Base64WidgetView extends ReactWidgetView {
   rComponent = Base64SimpleDFWidget;
 }
-
