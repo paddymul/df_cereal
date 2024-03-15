@@ -16,3 +16,6 @@ build:
       - node --version
       - npm install
       - npm run build:examples
+      - pwd
+      - ls
+      - cp -r docs/build/html/examples "$READTHEDOCS_OUTPUT/html"
