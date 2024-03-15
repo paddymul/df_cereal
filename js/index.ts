@@ -5,5 +5,5 @@
 
 export * from './version';
 export * from './dcefwidget';
-export * as arrowUtils from './arrowUtils'
+export * as arrowUtils from './arrowUtils';
 export * as Components from './SimpleDFWidget';
