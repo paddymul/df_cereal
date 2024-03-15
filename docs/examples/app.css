@@ -75,6 +75,10 @@ html,body
     outline:4px solid pink;
 }
 
+.component-example {
+    border:1px solid black;
+}
+
 .histogram {
     color:black;
 }

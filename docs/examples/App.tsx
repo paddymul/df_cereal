@@ -62,7 +62,7 @@ const App = (): JSX.Element => {
     return (
         <Router>
             <h1 className='m-2'>
-                <strong>react-edit-list  Examples</strong>
+                <strong>DF_Cereal  Examples</strong>
             </h1>
             <div className='d-flex flex-row p-3'>
                 <div className='d-flex flex-column left-menu me-2'>
@@ -85,7 +85,10 @@ const App = (): JSX.Element => {
                                 <div className='row'>
                                     <div className='col-12 col-xl-5 mb-1'>
                                         <React.Suspense fallback={<div>Loading component...</div>}>
-                                            {React.createElement(examples[e].comp)}
+                                             <div className="component-example">
+			                         <h2> Component example </h2>
+                                                 {React.createElement(examples[e].comp)}
+                                             </div>
                                         </React.Suspense>
                                     </div>
                                     <div className='col-12 col-xl-7'>
