@@ -16,7 +16,7 @@ export type DFData = DFDataRow[];
 function tableRow(r: DFDataRow) {
   return Object.keys(r).map((key: string) => {
     const val = r[key];
-    return <td key={key}> {val} </td>;
+    return <td key={key}> {val.toString()} </td>;
   });
 }
 
