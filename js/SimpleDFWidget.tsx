@@ -1,6 +1,6 @@
 import React from 'react';
 //import React, { useState, useRef } from 'react';
-//import _ from 'lodash';
+import _ from 'lodash';
 
 import { tableFromIPC } from 'apache-arrow';
 import { arrowFromBase64, arrowToDFDataProxy } from './arrowUtils';
@@ -16,7 +16,7 @@ export type DFData = DFDataRow[];
 function tableRow(r: DFDataRow) {
   return Object.keys(r).map((key: string) => {
     const val = r[key];
-    return <td key={key}> {val.toString()} </td>;
+    return <td key={key}> { val ? val.toString() : "None"} </td>;
   });
 }
 
@@ -67,6 +67,7 @@ export function BytesSimpleDFWidget({
 }) {
   console.log('df_arrow_bytes', df_arrow_bytes);
   //const uintBytes = new Uint8Array(df_arrow_bytes.buffer);
+  // bigInts don't print normally, have to call .toString() on them
 
   const table = tableFromIPC(df_arrow_bytes.buffer); //uintBytes);
   console.log('table', table);
@@ -77,6 +78,49 @@ export function BytesSimpleDFWidget({
 export function Base64SimpleDFWidget({ df_base64 }: { df_base64: string }) {
   const table = arrowFromBase64(df_base64);
   //  const table = tableFromIPC(df_arrow_bytes);
+  
   const dfd: DFData = arrowToDFDataProxy(table);
   return SimpleDFWidget({ df_data: dfd });
+}
+
+
+export const proxyIterate = (df_data:DFData) => {
+  //fast function that requires accessing each element of df_data
+  let accum=0;
+  for(var i=0; i < df_data.length; i++){
+    const row = df_data[i];
+
+    _.forEach(row, (val) => {
+      if(val === null) return;
+      if(typeof val === 'string') {
+        accum += val.length;
+      } else if (typeof val === 'number') {
+        accum += val;
+      }
+    })
+
+   //console.log("row", row)
+  }
+  return accum
+}
+
+export const BytesBenchmark = ({df_arrow_bytes, timing_info, on_timing_info}: {df_arrow_bytes:DataView, timing_info: any, on_timing_info:any}) => {
+
+  console.log("before once")
+  if (_.keys(timing_info).length === 0 ) {
+  const t1 = new Date();
+  const table = tableFromIPC(df_arrow_bytes.buffer); //uintBytes);
+  const dfd: DFData = arrowToDFDataProxy(table);
+  const t2 = new Date();
+  console.log("proxyIterate", proxyIterate(dfd));
+  const t3 = new Date();
+  //@ts-ignore
+  const d1 = t2 - t1;
+  //@ts-ignore
+  const d2 = t3 - t2;
+  console.log("d1", d1);
+  console.log("d2", d2);
+  on_timing_info({t1,t2,t3})
+  };
+
 }

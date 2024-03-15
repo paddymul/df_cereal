@@ -55,6 +55,10 @@ b = t2.batches[0]
 
 b.schema.metadata // pandas index info
 bi  = b.data.children[0].values[0]
+JSON.parse( t2.schema.metadata.get('pandas')) 
+
+pmdecode = new TextDecoder().decode(b.data.children[1].values) 
+t2.getChild('b').get(0) 
 
 */
 

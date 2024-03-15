@@ -14,6 +14,8 @@ const examples = {
     ArrowBase64SimpleDFWidgetEx: {title: 'Arrow Base64 SimpleDFWidget', file: 'ArrowBase64SimpleDFWidgetEx'},
     BigIntWidgetEx: {title: 'BigInt Widget', file: 'BigIntWidgetEx'},
     StringColEx: {title: 'StringCol Widget', file: 'StringColEx'},
+    NAColEx: {title: 'NACol Widget', file: 'NAColEx'},
+    NonFiniteColEx: {title: 'Non Finite Widget', file: 'NonFiniteEx'},
 
 
 };

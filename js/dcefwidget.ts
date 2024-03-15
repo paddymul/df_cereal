@@ -9,6 +9,7 @@ import {
 
 import {
   Base64SimpleDFWidget,
+  BytesBenchmark,
   BytesSimpleDFWidget,
   SimpleDFWidget,
 } from './SimpleDFWidget';
@@ -88,3 +89,9 @@ export class BytesWidgetView extends ReactWidgetView {
 export class Base64WidgetView extends ReactWidgetView {
   rComponent = Base64SimpleDFWidget;
 }
+
+
+export class BytesBenchmarkWidgetView extends ReactWidgetView {
+  rComponent = BytesBenchmark;
+}
+
