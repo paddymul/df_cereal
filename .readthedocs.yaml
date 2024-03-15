@@ -7,7 +7,6 @@ build:
     nodejs: "18"
   apt_packages:
     - graphviz
-    - nodejs
     - npm
   jobs:
     post_build:
