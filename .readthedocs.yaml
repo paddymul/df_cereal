@@ -8,7 +8,7 @@ build:
     - graphviz
     - nodejs
     - npm
-  post_build:	
+  post_build:
     - echo "Command run at 'post_build' step"
     - echo `date`
     - npm install
