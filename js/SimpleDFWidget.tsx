@@ -104,10 +104,11 @@ export const proxyIterate = (df_data:DFData) => {
   return accum
 }
 
-export const BytesBenchmark = ({df_arrow_bytes, timing_info, on_timing_info}: {df_arrow_bytes:DataView, timing_info: any, on_timing_info:any}) => {
+export const BytesBenchmark = ({df_arrow_bytes, timing_info, on_timing_info, do_calc, message}: 
+  {df_arrow_bytes:DataView, timing_info: any, on_timing_info:any, do_calc:boolean, message:string}) => {
 
-  console.log("before once")
-  if (_.keys(timing_info).length === 0 ) {
+  console.log("Bytes Benchmark", _.keys(timing_info).length, do_calc);
+  if (_.keys(timing_info).length === 0 && do_calc) {
     const t1 = new Date();
     const table = tableFromIPC(df_arrow_bytes.buffer); //uintBytes);
     const dfd: DFData = arrowToDFDataProxy(table);
@@ -118,10 +119,52 @@ export const BytesBenchmark = ({df_arrow_bytes, timing_info, on_timing_info}: {d
     const d1 = t2 - t1;
     //@ts-ignore
     const d2 = t3 - t2;
-    console.log("d1", d1);
-    console.log("d2", d2);
+    console.log("d1", d1, "d2", d2);
     on_timing_info({t1,t2,t3})
     console.log("bytesBenchmark finished");
   };
-  return <h1>Bytes Benchmark</h1>
+  return <h1> Bytes Benchmark: {message }</h1>
+
+}
+
+export const Base64Benchmark = ({df_base64, timing_info, on_timing_info, do_calc, message}: 
+  {df_base64:string, timing_info: any, on_timing_info:any, do_calc:boolean, message:string}) => {
+
+  console.log("Base64 benchmark", _.keys(timing_info).length, do_calc);
+  if (_.keys(timing_info).length === 0 && do_calc) {
+    const t1 = new Date();
+    const table = arrowFromBase64(df_base64);
+    const dfd: DFData = arrowToDFDataProxy(table);
+    const t2 = new Date();
+    console.log("proxyIterate", proxyIterate(dfd));
+    const t3 = new Date();
+    //@ts-ignore
+    const d1 = t2 - t1;
+    //@ts-ignore
+    const d2 = t3 - t2;
+    console.log("d1", d1, "d2", d2);
+    on_timing_info({t1,t2,t3})
+    console.log("Base64 Benchmark finished");
+  };
+  return <h1> Base64 Benchmark: {message }</h1>
+}
+
+export const DFDataBenchmark = ({df_data, timing_info, on_timing_info, do_calc, message}: 
+  {df_data:DFData, timing_info: any, on_timing_info:any, do_calc:boolean, message:string}) => {
+
+  console.log("Base64 benchmark", _.keys(timing_info).length, do_calc);
+  if (_.keys(timing_info).length === 0 && do_calc) {
+    const t1 = new Date();
+    const t2 = new Date();
+    console.log("proxyIterate", proxyIterate(df_data));
+    const t3 = new Date();
+    //@ts-ignore
+    const d1 = t2 - t1;
+    //@ts-ignore
+    const d2 = t3 - t2;
+    console.log("d1", d1, "d2", d2);
+    on_timing_info({t1,t2,t3})
+    console.log("DFDataBenchmark finished");
+  };
+  return <h1> DFData Benchmark: {message }</h1>
 }
