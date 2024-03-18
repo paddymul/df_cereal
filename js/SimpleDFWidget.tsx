@@ -108,19 +108,20 @@ export const BytesBenchmark = ({df_arrow_bytes, timing_info, on_timing_info}: {d
 
   console.log("before once")
   if (_.keys(timing_info).length === 0 ) {
-  const t1 = new Date();
-  const table = tableFromIPC(df_arrow_bytes.buffer); //uintBytes);
-  const dfd: DFData = arrowToDFDataProxy(table);
-  const t2 = new Date();
-  console.log("proxyIterate", proxyIterate(dfd));
-  const t3 = new Date();
-  //@ts-ignore
-  const d1 = t2 - t1;
-  //@ts-ignore
-  const d2 = t3 - t2;
-  console.log("d1", d1);
-  console.log("d2", d2);
-  on_timing_info({t1,t2,t3})
+    const t1 = new Date();
+    const table = tableFromIPC(df_arrow_bytes.buffer); //uintBytes);
+    const dfd: DFData = arrowToDFDataProxy(table);
+    const t2 = new Date();
+    console.log("proxyIterate", proxyIterate(dfd));
+    const t3 = new Date();
+    //@ts-ignore
+    const d1 = t2 - t1;
+    //@ts-ignore
+    const d2 = t3 - t2;
+    console.log("d1", d1);
+    console.log("d2", d2);
+    on_timing_info({t1,t2,t3})
+    console.log("bytesBenchmark finished");
   };
-
+  return <h1>Bytes Benchmark</h1>
 }
