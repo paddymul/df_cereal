@@ -17,12 +17,14 @@ const base64table = [
   "YAAAAAAAAABAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA",
   "AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAARUAAAAAAAAAoQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAM3MzMzMzDfAMzMzMzMzIkD/////AAAAAA=="].join('')
-          
+
+
 export default function() {
     // this test verifies that we can load  base64 into an array data and display the same table
 
     const b64bytes = arrowUtils.base64ToBytes(base64table)
-    const t2 = tableFromIPC(b64bytes);
+  const t2 = tableFromIPC(b64bytes);
+  console.log(t2);
     const dfd2 = arrowUtils.arrowToDFDataProxy(t2);    
     return <div><Components.SimpleDFWidget df_data={dfd2}/></div>
 }

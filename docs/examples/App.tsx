@@ -12,21 +12,15 @@ const examples = {
     ArrowSimpleDFWidgetEx: {title: 'ArrowSimpleDFWidget', file: 'ArrowSimpleDFWidgetEx'},
     ArrowUint8SimpleDFWidgetEx: {title: 'Arrow UInt8 SimpleDFWidget', file: 'ArrowUInt8SimpleDFWidgetEx'},
     ArrowBase64SimpleDFWidgetEx: {title: 'Arrow Base64 SimpleDFWidget', file: 'ArrowBase64SimpleDFWidgetEx'},
+    BigIntWidgetEx: {title: 'BigInt Widget', file: 'BigIntWidgetEx'},
+    StringColEx: {title: 'StringCol Widget', file: 'StringColEx'},
+    NAColEx: {title: 'NACol Widget', file: 'NAColEx'},
+    NonFiniteColEx: {title: 'Non Finite Widget', file: 'NonFiniteEx'},
 
 
 };
 
       
-
-const examplesOrig = {
-    simple: {title: 'Simple', file: 'Simple'},
-    advanced: {title: 'Advanced', file: 'Advanced'},
-    grid: {title: 'Custom Grid', file: 'CustomGrid'},
-    pagination: {title: 'Pagination', file: 'Pagination'},
-    custom: {title: 'Custom Field', file: 'CustomField'},
-    reordering: {title: 'Reordering', file: 'Reordering'}
-};
-
 // The examples use a code-loading technique that I have described in
 // https://mmomtchev.medium.com/making-examples-displaying-code-along-its-output-with-webpack-a28dcf5439c6
 

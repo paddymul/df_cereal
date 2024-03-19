@@ -8,8 +8,11 @@ import {
 } from '@jupyter-widgets/base';
 
 import {
+  Base64Benchmark,
   Base64SimpleDFWidget,
+  BytesBenchmark,
   BytesSimpleDFWidget,
+  DFDataBenchmark,
   SimpleDFWidget,
 } from './SimpleDFWidget';
 
@@ -87,4 +90,16 @@ export class BytesWidgetView extends ReactWidgetView {
 
 export class Base64WidgetView extends ReactWidgetView {
   rComponent = Base64SimpleDFWidget;
+}
+
+export class BytesBenchmarkWidgetView extends ReactWidgetView {
+  rComponent = BytesBenchmark;
+}
+
+export class Base64BenchmarkWidgetView extends ReactWidgetView {
+  rComponent = Base64Benchmark;
+}
+
+export class DFDataBenchmarkWidgetView extends ReactWidgetView {
+  rComponent = DFDataBenchmark;
 }

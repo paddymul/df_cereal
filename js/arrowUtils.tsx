@@ -38,24 +38,40 @@ export const arrowToDFDataProxy = (table: Table): DFData => {
   const dfDataHandler = {
     get(target: any, prop: string, receiver: any) {
       //console.log("target", target, "prop", prop, "receiver", receiver);
-
+      const length = table.batches[0].data.length;
       if (prop === 'length') {
-        return table.batches[0].data.length;
+        return length;
       } else if (prop === 'map') {
         return (passedFunc: any) => map(receiver, passedFunc);
+      } else {
+          const rn = parseInt(prop);
+          if(! _.isSafeInteger(rn)) {
+            throw new Error(`Unexpected property access of ${prop}, ${typeof prop}`)
+          }
       }
-      const rowNum = prop;
-      ///for now pretend that there's only a single batch
-      const relData = table.batches[0].data;
+
+      const rowNum:number = parseInt(prop);
+      if (rowNum > length ) {
+        throw new Error(`Out of bounds exception accessed ${rowNum} length ${length}`)
+      }
+
+      //for now pretend that there's only a single batch
+      //const relData = table.batches[0].data;
       const row: Record<string, any> = {};
+      const record = table.get(rowNum);
+      if (record === null) {
+        throw new Error(`Unexpected null row for ${rowNum}`)
+      }
+
       for (let i = 0; i < columns.length; i++) {
         const colName = columns[i];
-        row[colName] = relData.children[i].values[rowNum];
+        row[colName] = record[colName]; // relData.children[i].values[rowNum];
       }
       return row;
     },
   };
 
+  //@ts-ignore
   const dfDataProxy = new Proxy(dfTarget, dfDataHandler);
   return dfDataProxy;
 }; // from https://developer.mozilla.org/en-US/docs/Glossary/Base64#Solution_.232_.E2.80.93_rewriting_atob%28%29_and_btoa%28%29_using_TypedArrays_and_UTF-8
