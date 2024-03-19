@@ -92,7 +92,6 @@ export class Base64WidgetView extends ReactWidgetView {
   rComponent = Base64SimpleDFWidget;
 }
 
-
 export class BytesBenchmarkWidgetView extends ReactWidgetView {
   rComponent = BytesBenchmark;
 }
@@ -104,4 +103,3 @@ export class Base64BenchmarkWidgetView extends ReactWidgetView {
 export class DFDataBenchmarkWidgetView extends ReactWidgetView {
   rComponent = DFDataBenchmark;
 }
-

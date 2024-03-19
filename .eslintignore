@@ -4,3 +4,4 @@ coverage
 **/*.d.ts
 tests
 js/arrowUtils.tsx
+js/SimpleDFWidget.tsx
